@@ -5,7 +5,7 @@ using System.Security.Claims;
 
 namespace keepr.Models
 {
-  public class Keep // CONSTRUCTOR still need helper methods to create, add, delete
+  public class Keep // CONSTRUCTOR still need to test helper methods to create, add, delete
   {
     [Required]
     [MinLength(2)]
@@ -24,11 +24,17 @@ namespace keepr.Models
     public string Description { get; set; }
     public int BoardId { get; set; }
   }
+  //NEED TO TEST THIS
   public class addKeep
   {
     [Required]
     //might need to update old id here also, most likely
     public int newBoardId { get; set; }
+  }
+  //needs completion then testing
+  public class removeKeep
+  {
+
   }
 
 

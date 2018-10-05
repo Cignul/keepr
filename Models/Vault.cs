@@ -5,7 +5,7 @@ using System.Security.Claims;
 
 namespace keepr.Models
 {
-  public class Vault // CONSTRUCTOR might need helper method to delete
+  public class Vault // Model w/ ctor -  might need helper method(s) to delete etc.
   {
     [Required]
     [MinLength(2)]

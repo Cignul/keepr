@@ -29,6 +29,7 @@ namespace keepr.Models
     public string Password { get; set; }
   }
 
+  //user model
   public class User
   {
     public string Id { get; set; }
