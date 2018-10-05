@@ -26,7 +26,9 @@ namespace keepr.Models
   }
   public class addKeep
   {
-
+    [Required]
+    //might need to update old id here also, most likely
+    public int newBoardId { get; set; }
   }
 
 
