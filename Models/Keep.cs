@@ -6,7 +6,7 @@ using System.Security.Claims;
 namespace keepr.Models
 {
 
-  public class Keep // CONSTRUCTOR need helper methods to create, add, delete
+  public class Keep // CONSTRUCTOR still need helper methods to create, add, delete
   {
     [Required]
     [MinLength(2)]
