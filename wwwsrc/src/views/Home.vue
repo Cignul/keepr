@@ -6,7 +6,7 @@
       <input type="text" Default="name">
       <input type="text" Default="description">
       <!-- need to call newKeep on the onclick, might need function in repo -->
-      <input type="submit" v-on:submit="">
+      <input type="submit" v-on:submit="newKeep()">
     </form>
     <form>form for creating vaults
       <input type="text" Default="name">
