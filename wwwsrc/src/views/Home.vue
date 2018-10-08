@@ -14,7 +14,7 @@
       <!-- need to call new vault function out of repo (i think, maybe vault model) -->
       <input type="submit" v-on:submit="">
     </form>
-    <ul>spot for keeps</ul>
+    <ul>unordered list for keeps here</ul>
     <!-- need to add logic to logout and @click -->
     <button>Logout</button>
   </div>
