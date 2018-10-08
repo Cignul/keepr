@@ -30,7 +30,7 @@ namespace keepr.Models
   }
   // logout method, needs testing, not currently working
   public class logout
-  { public bool Active { get; set; } = true; }
+  { public bool Active { get; set; } = false; }
   //user model
   public class User
   {
