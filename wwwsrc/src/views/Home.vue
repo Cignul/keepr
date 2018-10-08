@@ -1,6 +1,9 @@
 <template>
   <div class="home">
-    <h1>Welcome To Keepr</h1>
+    <h1>Welcome to Keepr</h1>
+    <ul>spot for keeps</ul>
+    <!-- need to add logic to logout and @click -->
+    <button>Logout</button>
   </div>
 </template>
 

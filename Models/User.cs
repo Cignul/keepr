@@ -28,7 +28,9 @@ namespace keepr.Models
     [MinLength(6)]
     public string Password { get; set; }
   }
-
+  // logout method, needs testing, not currently working
+  public class logout
+  { public bool Active { get; set; } = true; }
   //user model
   public class User
   {
