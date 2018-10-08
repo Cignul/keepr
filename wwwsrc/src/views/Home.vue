@@ -1,6 +1,15 @@
 <template>
   <div class="home">
     <h1>Welcome to Keepr</h1>
+    <!-- need to add onsubmit to create new keep -->
+    <form>form for creating keeps
+      <input type="text" Default="name">
+      <input type="text" Default="description">
+    </form>
+    <form>form for creating vaults
+      <input type="text" Default="name">
+      <input type="text" Default="description">
+    </form>
     <ul>spot for keeps</ul>
     <!-- need to add logic to logout and @click -->
     <button>Logout</button>
