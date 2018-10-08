@@ -16,20 +16,20 @@ namespace keepr.Models
     public Keep() { }  //parameterless constructor
 
   }
-  public class newKeep // helper method - basically the ctor with associated BoardId
+  public class newKeep // helper method - basically the ctor with associated VaultID
   {
     [Required]
     public string Name { get; set; }
     [Required]
     public string Description { get; set; }
-    public int BoardId { get; set; }
+    public int VaultId { get; set; }
   }
   //NEED TO TEST THIS
   public class addKeep
   {
     [Required]
     //might need to update old id here also, most likely
-    public int newBoardId { get; set; }
+    public int newVaultId { get; set; }
   }
   //needs completion then testing
   public class removeKeep
