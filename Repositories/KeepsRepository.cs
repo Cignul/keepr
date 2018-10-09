@@ -9,7 +9,7 @@ namespace keepr.Repositories
 {
   public class KeepsRepository
   {
-
+    IDbConnection _db;
 
 
   }
