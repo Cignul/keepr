@@ -16,7 +16,7 @@
     </form>
     <ul>unordered list for keeps here</ul>
     <!-- need to add logic to logout and @click -->
-    <button>Logout</button>
+    <button v-on:click="Logout()">Logout</button>
   </div>
 </template>
 
