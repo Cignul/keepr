@@ -15,6 +15,7 @@ namespace keepr.Models
     public string Description { get; set; }
 
     public int VaultId { get; set; }
+    public Keep() { }
     public Keep(string Name, string Description, int VaultId) { }  //parameterless constructor
 
   }

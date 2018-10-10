@@ -29,6 +29,14 @@
         this.$router.push({ name: "login" });
       }
     },
+    data() {
+      return {
+        newKeep: {
+          title: "",
+          description: "",
+        }
+      };
+    },
     methods: {
       createKeep() {
         console.log("hitting create keep from button")
