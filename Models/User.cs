@@ -42,6 +42,7 @@ namespace keepr.Models
     public string Email { get; set; }
     [Required]
     internal string Hash { get; set; }
+    internal Keep Keeps { get; set; }
     internal ClaimsPrincipal _principal { get; private set; }
 
 

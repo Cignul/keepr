@@ -13,7 +13,7 @@ namespace keepr.Controllers
 
   [Route("api/[controller]")]
   [ApiController]
-  public class KeepController : Controller
+  public class KeepsController : Controller
   {
     //not sure if i need this next line, similar to AccountContr.
     //private readonly KeepsRepository _repo;

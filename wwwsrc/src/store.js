@@ -19,14 +19,35 @@ let api = Axios.create({
 
 export default new Vuex.Store({
   state: {
-    user: {}
+    user: {},
+    keeps: {},
+    vaults: {},
   },
   mutations: {
     setUser(state, user) {
       state.user = user
-    }
+    },
+    setKeeps(state, keeps) {
+      state.keeps = keeps
+    },
   },
   actions: {
+    // KEEP STUFF  this broke it
+    getKeeps({ commit, dispatch }) {
+      api.get('keeps')
+        .then(res => {
+          commit('setKeeps', res.data)
+        })
+    },
+
+    createKeep({ commit, dispatch }, Keep) {
+      api.post('keeps', Keep)
+        .then(res => {
+          dispatch('getKeeps')
+
+        })
+
+    },
     register({ commit, dispatch }, newUser) {
       auth.post('register', newUser)
         .then(res => {

@@ -6,7 +6,7 @@
       <input type="text" Default="name">
       <input type="text" Default="description">
       <!-- need to call newKeep on the onclick, might need function in repo -->
-      <input type="submit" v-on:click="createKeep()">
+      <input type="button" v-on:click="createKeep()">
     </form>
     <form>form for creating vaults
       <input type="text" Default="name">
@@ -27,6 +27,12 @@
       //blocks users not logged in
       if (!this.$store.state.user.id) {
         this.$router.push({ name: "login" });
+      }
+    },
+    methods: {
+      createKeep() {
+        console.log("hitting create keep from button")
+        this.$store.dispatch("createKeep")
       }
     }
   };
