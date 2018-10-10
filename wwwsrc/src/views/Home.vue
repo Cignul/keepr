@@ -3,8 +3,8 @@
     <h1>Welcome to Keepr</h1>
     <!-- need to add onsubmit to create new keep -->
     <form>form for creating keeps
-      <input type="text" Default="name">
-      <input type="text" Default="description">
+      <input type="text" Default="name" v-model="newKeep.name">
+      <input type="text" Default="description" v-model="newKeep.description">
       <!-- need to call newKeep on the onclick, might need function in repo -->
       <input type="button" v-on:click="createKeep()">
     </form>
@@ -33,14 +33,14 @@
       return {
         newKeep: {
           title: "",
-          description: "",
+          description: ""
         }
       };
     },
     methods: {
       createKeep() {
         console.log("hitting create keep from button")
-        this.$store.dispatch("createKeep")
+        this.$store.dispatch("createKeep", this.newKeep)
       }
     }
   };
