@@ -20,20 +20,12 @@ namespace keepr.Controllers
     {
       _repo = repo;
     }
-    [HttpGet("{id}")]
+    //not sure if I need  ID on get decoration
+    [HttpGet]
 
     public IEnumerable<Keep> Get()
     {
       return _repo.GetAll();
-    }
-
-
-
-    //get api/values/5
-
-    public ActionResult<string> Get(int id)
-    {
-      return "value";
     }
 
     //post api/values

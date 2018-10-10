@@ -1,5 +1,6 @@
 import Vue from 'vue'
 import Vuex from 'vuex'
+import axios from 'axios'
 import Axios from 'axios'
 import router from './router'
 
@@ -28,12 +29,12 @@ export default new Vuex.Store({
       state.user = user
     },
     setKeeps(state, keeps) {
-      state.keeps = keeps
-    },
+      state.keeps = keeps;
+    }
   },
   actions: {
-    // KEEP STUFF  this broke it
-    getKeeps({ commit, dispatch }) {
+    // KEEP STUFF  this broke it(i think, not hitting correct route)
+    getAllKeeps({ commit, dispatch }) {
       api.get('keeps')
         .then(res => {
           commit('setKeeps', res.data)
