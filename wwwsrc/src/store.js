@@ -40,11 +40,11 @@ export default new Vuex.Store({
           commit('setKeeps', res.data)
         })
     },
-
+    //this is currently causing a problem
     createKeep({ commit, dispatch }, Keep) {
       api.post('keeps', Keep)
         .then(res => {
-          dispatch('getKeeps')
+          dispatch('getAllKeeps')
 
         })
 
