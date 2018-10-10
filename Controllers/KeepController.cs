@@ -15,20 +15,21 @@ namespace keepr.Controllers
   [ApiController]
   public class KeepsController : Controller
   {
-    //not sure if i need this next line, similar to AccountContr.
-    //private readonly KeepsRepository _repo;
-    public ActionResult<IEnumerable<string>> Get()
+    KeepsRepository _repo;
+    public KeepsController(KeepsRepository repo)
     {
-      string[] response = new string[4];
-      response[0] = "value1";
-      response[1] = "value2";
-      response[2] = "value3";
-      response[3] = "value4";
-      return response;
-      //alternately return new string[] {"value1", value2"};
+      _repo = repo;
     }
-    //get api/values/5
     [HttpGet("{id}")]
+
+    public IEnumerable<Keep> Get()
+    {
+      return _repo.GetAll();
+    }
+
+
+
+    //get api/values/5
 
     public ActionResult<string> Get(int id)
     {
@@ -37,9 +38,15 @@ namespace keepr.Controllers
 
     //post api/values
     [HttpPost]
-    public void Post([FromBody] string value)
+    public Keep Post([FromBody] Keep keep)
     {
+      if (ModelState.IsValid)
+      {
+        keep = new Keep(keep.Name, keep.Description, keep.VaultId);
+        return _repo.Create(keep);
 
+      }
+      throw new Exception("invalid keep");
     }
     //put api/values/5
     [HttpPut("{id}")]

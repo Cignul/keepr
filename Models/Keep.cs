@@ -15,7 +15,7 @@ namespace keepr.Models
     public string Description { get; set; }
 
     public int VaultId { get; set; }
-    public Keep() { }  //parameterless constructor
+    public Keep(string Name, string Description, int VaultId) { }  //parameterless constructor
 
   }
   public class newKeep // helper method - basically the ctor with associated VaultID
