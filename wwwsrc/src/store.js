@@ -33,14 +33,14 @@ export default new Vuex.Store({
     }
   },
   actions: {
-    // KEEP STUFF  this broke it(i think, not hitting correct route)
+    // KEEP STUFF  
     getAllKeeps({ commit, dispatch }) {
       api.get('keeps')
         .then(res => {
           commit('setKeeps', res.data)
         })
     },
-    //this is currently causing a problem
+    //this is currently causing a problem - this broke it(i think, not hitting correct route)
     createKeep({ commit, dispatch }, Keep) {
       api.post('keeps', Keep)
         .then(res => {
