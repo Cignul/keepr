@@ -12,7 +12,7 @@ namespace keepr.Controllers
 {
 
   [Route("api/[controller]")]
-  [APIController]
+  [ApiController]
 
   public class VaultsController : Controller
   {
@@ -24,9 +24,9 @@ namespace keepr.Controllers
     }
     [HttpGet]
 
-    public IEnumerable<VaultsController> Get()
+    public IEnumerable<Vault> Get()
     {
-      return _repo.GetAll();
+      return _repo.GetAllVaults();
     }
 
     //post api/values
