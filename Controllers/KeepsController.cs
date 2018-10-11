@@ -45,10 +45,13 @@ namespace keepr.Controllers
     public void Put(int id, [FromBody] string value)
     { }
 
-    //DELETE api/vaues/5
+    //DELETE api/keeps/{some id}
     [HttpDelete("{id}")]
     public void Delete(int id)
-    { }
+    {
+      _repo.Delete(id);
+      return;
+    }
 
 
   }

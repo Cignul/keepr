@@ -40,6 +40,13 @@ namespace keepr.Repositories
       {
       }
     }
+
+    public void Delete(int id)
+    {
+      _db.Execute(@"
+      DELETE FROM keeps WHERE id = @id
+     ", new { id });
+    }
   }
 }
 //from right above, first attempt

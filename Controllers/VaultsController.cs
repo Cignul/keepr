@@ -50,5 +50,12 @@ namespace keepr.Controllers
 
     public void Delete(int id)
     { }
+
+
+    //VAULTKEEPS
+    //[HttpGet("/keeps/{vaultId}")]
+    //public IEnumerable<Keep> GetKeepsByVaultId()
+
+
   }
 }
