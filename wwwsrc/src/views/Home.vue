@@ -9,7 +9,7 @@
       <!-- need to call newKeep on the onclick, might need function in repo -->
       <input type="button" v-on:click="createKeep()">
     </form>
-    <button type="button" v-on:click="GetAll()">get all</button>
+    <button type="button" v-on:click="GetAll()">get all keeps</button>
 
     <form>form for creating vaults
       <input type="text" Default="name" v-model="newVault.name">
@@ -17,6 +17,7 @@
       <!-- need to call new vault function out of repo (i think, maybe vault model) -->
       <input type="button" v-on:click="createVault()">
     </form>
+    <button type="button" v-on:click="getAllVaults()">get all vaults</button>
 
     <ul>unordered list for keeps here</ul>
     <li v-for="keep in keeps">{{keep.name}}</li>
