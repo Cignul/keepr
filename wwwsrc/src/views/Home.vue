@@ -1,10 +1,13 @@
 <template>
   <div class="home">
     <header>
-      <h1>Welcome to Keepr</h1>
+      <h1 class="font-weight-thin.font-italic">Welcome to Keepr</h1>
     </header>
 
     <!-- need to add onsubmit to create new keep -->
+    <div class="row">
+      <v-card v-for="keep in keeps">{{keep.name}} </v-card>
+    </div>
     <div class="row">
       <div class="col-sm-12">
         <form>Create a Keep:
@@ -30,11 +33,11 @@
     <ul>List of Keeps:</ul>
     <li v-for="keep in keeps">{{keep.name}}</li>
 
+
     <ul>List of Vaults:</ul>
     <li v-for="vault in vaults">{{vaults}}</li>
     <!-- need to add logic to logout and @click -->
     <button v-on:click="Logout()">Logout</button>
-
   </div>
 </template>
 
