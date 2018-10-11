@@ -30,6 +30,9 @@ export default new Vuex.Store({
     },
     setKeeps(state, keeps) {
       state.keeps = keeps;
+    },
+    setVaults(state, vaults) {
+      state.vaults = vaults;
     }
   },
   actions: {
@@ -40,7 +43,7 @@ export default new Vuex.Store({
           commit('setKeeps', res.data)
         })
     },
-    //this is currently causing a problem - this broke it(i think, not hitting correct route)
+
     createKeep({ commit, dispatch }, Keep) {
       api.post('keeps', Keep)
         .then(res => {
@@ -49,6 +52,23 @@ export default new Vuex.Store({
         })
 
     },
+    //Vault stuff
+    getAllVaults({ commit, dispatch }) {
+      api.get('vaults')
+        .then(res => {
+          commit('setVaults', res.data)
+        })
+    },
+    createVault({ commit, dispatch }, Vault) {
+      api.post('vaults', Vault)
+        .then(res => {
+          dispatch('getAllVaults')
+
+        })
+
+    },
+
+    //user auth stuff
     register({ commit, dispatch }, newUser) {
       auth.post('register', newUser)
         .then(res => {

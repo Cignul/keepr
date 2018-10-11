@@ -7,6 +7,7 @@ namespace keepr.Models
 {
   public class Vault // Model w/ ctor -  might need helper method(s) to delete etc.
   {
+    public int Id;
     [Required]
     [MinLength(2)]
     public string Name { get; set; }
