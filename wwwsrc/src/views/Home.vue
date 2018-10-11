@@ -1,6 +1,7 @@
 <template>
   <div class="home">
     <h1>Welcome to Keepr</h1>
+
     <!-- need to add onsubmit to create new keep -->
     <form>form for creating keeps
       <input type="text" Default="name" v-model="newKeep.name">
@@ -9,16 +10,19 @@
       <input type="button" v-on:click="createKeep()">
     </form>
     <button type="button" v-on:click="GetAll()">get all</button>
+
     <form>form for creating vaults
-      <input type="text" Default="name">
-      <input type="text" Default="description">
+      <input type="text" Default="name" v-model="newVault.name">
+      <input type="text" Default="description" v-model="newVault.description">
       <!-- need to call new vault function out of repo (i think, maybe vault model) -->
-      <input type="submit" v-on:submit="">
+      <input type="button" v-on:click="createVault()">
     </form>
+
     <ul>unordered list for keeps here</ul>
     <li v-for="keep in keeps">{{keep.name}}</li>
     <!-- need to add logic to logout and @click -->
     <button v-on:click="Logout()">Logout</button>
+
   </div>
 </template>
 
@@ -36,12 +40,19 @@
         newKeep: {
           title: "",
           description: ""
+        },
+        newVault: {
+          title: "",
+          description: ""
         }
       };
     },
     computed: {
       keeps() {
         return this.$store.state.keeps
+      },
+      vaults() {
+        return this.$store.state.vaults
       }
     },
     methods: {
@@ -52,6 +63,14 @@
       GetAll() {
         console.log("hitting getAll from button")
         this.$store.dispatch("getAllKeeps")
+      },
+      createVault() {
+        console.log("hitting create vault from button")
+        this.$store.dispatch("createVault", this.newVault)
+      },
+      getAllVaults() {
+        console.log("hitting getallVAultsfrom button")
+        this.$store.dispatch("getAllVaults")
       }
       // },
       // GetById() {
