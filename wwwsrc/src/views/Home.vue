@@ -6,9 +6,6 @@
 
     <!-- need to add onsubmit to create new keep -->
     <div class="row">
-      <v-card v-for="keep in keeps">{{keep.name}} </v-card>
-    </div>
-    <div class="row">
       <div class="col-sm-12">
         <form>Create a Keep:
           <input type="text" Default="name" v-model="newKeep.name" class="form-control">
@@ -33,12 +30,42 @@
     <ul>List of Keeps:</ul>
     <li v-for="keep in keeps">{{keep.name}}</li>
 
-
     <ul>List of Vaults:</ul>
     <li v-for="vault in vaults">{{vaults}}</li>
     <!-- need to add logic to logout and @click -->
     <button v-on:click="Logout()">Logout</button>
+
+    <div>
+      <v-layout>
+        <v-flex xs12 sm6 offset-sm3>
+          <v-card>
+            <v-img class="white--text" height="200px" src="https://cdn.vuetifyjs.com/images/cards/docks.jpg">
+              <v-container fill-height fluid>
+                <v-layout fill-height>
+                  <v-flex xs12 align-end flexbox>
+                    <span class="headline">Vault: $"{vault}"</span>
+                  </v-flex>
+                </v-layout>
+              </v-container>
+            </v-img>
+            <v-card-title>
+              <div>
+                <span class="grey--text">Number 10</span><br>
+                <span>Whitehaven Beach</span><br>
+                <span>Whitsunday Island, Whitsunday Islands</span>
+              </div>
+            </v-card-title>
+            <v-card-actions>
+              <v-btn flat color="orange">View</v-btn>
+              <v-btn flat color="orange">Like</v-btn>
+              <v-btn flat color="orange">Share</v-btn>
+            </v-card-actions>
+          </v-card>
+        </v-flex>
+      </v-layout>
+    </div>
   </div>
+
 </template>
 
 <script>
