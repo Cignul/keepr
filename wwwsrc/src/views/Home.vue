@@ -6,7 +6,7 @@
       <input type="text" Default="name" v-model="newKeep.name">
       <input type="text" Default="description" v-model="newKeep.description">
       <!-- need to call newKeep on the onclick, might need function in repo -->
-      <input type="button" v-on:click="createKeep()">
+      <input type="button" v-on:click="createKeep()" v-on:click="GetById()">
     </form>
     <form>form for creating vaults
       <input type="text" Default="name">

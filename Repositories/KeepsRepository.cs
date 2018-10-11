@@ -20,6 +20,10 @@ namespace keepr.Repositories
     {
       return _db.Query<Keep>("SELECT * FROM keeps;");
     }
+    public Keep GetById(int id)
+    {
+      return _db.Query<Keep>("SELECT * FROM keeps WHERE id = @id;", new { id }).FirstOrDefault();
+    }
     //removed 3rd attribute of VaultId, was throwing error not in table. 
     //null name error
     public Keep Create(Keep keep)
