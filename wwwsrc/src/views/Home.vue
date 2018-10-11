@@ -36,6 +36,7 @@
     <button v-on:click="Logout()">Logout</button>
 
     <div>
+      <!-- Vuetify CARD attempt (from docs) -->
       <v-layout>
         <v-flex xs12 sm6 offset-sm3>
           <v-card>
@@ -50,9 +51,9 @@
             </v-img>
             <v-card-title>
               <div>
-                <span class="grey--text">Number 10</span><br>
-                <span>Whitehaven Beach</span><br>
-                <span>Whitsunday Island, Whitsunday Islands</span>
+                <span class="grey--text">Vault name</span><br>
+                <span>need interpolation for title</span><br>
+                <span>need interpolation here (description)</span>
               </div>
             </v-card-title>
             <v-card-actions>
