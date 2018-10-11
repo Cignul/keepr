@@ -1,26 +1,37 @@
 <template>
   <div class="home">
-    <h1>Welcome to Keepr</h1>
+    <header>
+      <h1>Welcome to Keepr</h1>
+    </header>
 
     <!-- need to add onsubmit to create new keep -->
-    <form>form for creating keeps
-      <input type="text" Default="name" v-model="newKeep.name">
-      <input type="text" Default="description" v-model="newKeep.description">
-      <!-- need to call newKeep on the onclick, might need function in repo -->
-      <input type="button" v-on:click="createKeep()">
-    </form>
-    <button type="button" v-on:click="GetAll()">get all keeps</button>
-
-    <form>form for creating vaults
-      <input type="text" Default="name" v-model="newVault.name">
-      <input type="text" Default="description" v-model="newVault.description">
-      <!-- need to call new vault function out of repo (i think, maybe vault model) -->
-      <input type="button" v-on:click="createVault()">
-    </form>
-    <button type="button" v-on:click="getAllVaults()">get all vaults</button>
-
-    <ul>unordered list for keeps here</ul>
+    <div class="row">
+      <div class="col-sm-12">
+        <form>Create a Keep:
+          <input type="text" Default="name" v-model="newKeep.name" class="form-control">
+          <input type="text" Default="description" v-model="newKeep.description" class="form-control">
+          <!-- need to call newKeep on the onclick, might need function in repo -->
+          Create Keep-><input type="button" class="btn btn-primary" v-on:click="createKeep()">
+        </form>
+        <button type="button" v-on:click="GetAll()" class="btn btn-primary">get all keeps</button>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-sm-12">
+        <form>Create a Vault:
+          <input type="text" Default="name" v-model="newVault.name" class="form-control">
+          <input type="text" Default="description" v-model="newVault.description" class="form-control">
+          <!-- need to call new vault function out of repo (i think, maybe vault model) -->
+          Create Vault-> <input type="button" v-on:click="createVault()" class="btn btn-primary">
+        </form>
+        <button type="button" v-on:click="getAllVaults()" class="btn btn-primary">get all vaults</button>
+      </div>
+    </div>
+    <ul>List of Keeps:</ul>
     <li v-for="keep in keeps">{{keep.name}}</li>
+
+    <ul>List of Vaults:</ul>
+    <li v-for="vault in vaults">{{vaults}}</li>
     <!-- need to add logic to logout and @click -->
     <button v-on:click="Logout()">Logout</button>
 
@@ -54,6 +65,9 @@
       },
       vaults() {
         return this.$store.state.vaults
+      },
+      Lougout() {
+        return this.$store.state.setUser = false;
       }
     },
     methods: {
