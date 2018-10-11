@@ -7,6 +7,7 @@ namespace keepr.Models
 {
   public class Keep // CONSTRUCTOR still need to test helper methods to create, add, delete
   {
+    public int Id;
     [Required]
     [MinLength(2)]
     public string Name { get; set; }
@@ -14,9 +15,8 @@ namespace keepr.Models
     [MinLength(5)]
     public string Description { get; set; }
 
-    public int VaultId { get; set; }
     public Keep() { }
-    public Keep(string Name, string Description, int VaultId) { }  //parameterless constructor
+    //public Keep(string Name, string Description, int VaultId) { }  //parameterless constructor
 
   }
   public class newKeep // helper method - basically the ctor with associated VaultID

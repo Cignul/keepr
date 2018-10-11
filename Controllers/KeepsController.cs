@@ -34,7 +34,7 @@ namespace keepr.Controllers
     {
       if (ModelState.IsValid)
       {
-        keep = new Keep(keep.Name, keep.Description, keep.VaultId);
+        //keep = new Keep(keep.Name, keep.Description);
         return _repo.Create(keep);
 
       }

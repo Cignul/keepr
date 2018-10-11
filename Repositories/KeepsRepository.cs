@@ -31,7 +31,7 @@ namespace keepr.Repositories
       );
 
       // keep.Description = Description,
-      keep.VaultId = id;
+      keep.Id = id;
       return keep;
       {
       }
