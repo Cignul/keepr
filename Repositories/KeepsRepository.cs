@@ -11,7 +11,6 @@ namespace keepr.Repositories
   public class KeepsRepository
   {
     IDbConnection _db;
-    //just needs name/description
 
     public KeepsRepository(IDbConnection db)
     {
@@ -21,6 +20,8 @@ namespace keepr.Repositories
     {
       return _db.Query<Keep>("SELECT * FROM keeps;");
     }
+    //removed 3rd attribute of VaultId, was throwing error not in table. 
+    //null name error
     public Keep Create(Keep keep)
     {
       int id = _db.ExecuteScalar<int>(@"
@@ -28,26 +29,24 @@ namespace keepr.Repositories
       VALUES (@Name, @Description);
       SELECT LAST_INSERT_ID();", keep
       );
-      //removed 3rd attribute of VaultId, was throwing error not in table.  Maybe change table to have that field if needed
-      //doesn't recognize name, not instantiated maybe?
+
       // keep.Description = Description,
       keep.VaultId = id;
       return keep;
       {
-        //   name = keep.Name,
-        // keep.Name = name;
-        //   vaultId = keep.VaultId
-        // });
-        // if (success != 1) { return null; }
-        // return new Keep()
-        // {
-        //   Name = creds.Name,
-        //   Description = creds.Description,
-        //   VaultId = creds.VaultId
-        // };
       }
-
     }
-
   }
 }
+//from right above, first attempt
+//   name = keep.Name,
+// keep.Name = name;
+//   vaultId = keep.VaultId
+// });
+// if (success != 1) { return null; }
+// return new Keep()
+// {
+//   Name = creds.Name,
+//   Description = creds.Description,
+//   VaultId = creds.VaultId
+// };
