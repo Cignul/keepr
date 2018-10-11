@@ -6,7 +6,7 @@
       <input type="text" Default="name" v-model="newKeep.name">
       <input type="text" Default="description" v-model="newKeep.description">
       <!-- need to call newKeep on the onclick, might need function in repo -->
-      <input type="button" v-on:click="createKeep()" v-on:click="GetById()">
+      <input type="button" v-on:click="createKeep()" v-on:submit="GetById()">
     </form>
     <form>form for creating vaults
       <input type="text" Default="name">
@@ -42,6 +42,10 @@
         console.log("hitting create keep from button")
         this.$store.dispatch("createKeep", this.newKeep)
       }
+      // },
+      // GetById() {
+      //   console.log("hitting getBYId in home.vue")
+      //   this.$store.dispatch("GetById", this.GetById)
     }
   };
 </script>
