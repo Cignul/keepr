@@ -6,8 +6,9 @@
       <input type="text" Default="name" v-model="newKeep.name">
       <input type="text" Default="description" v-model="newKeep.description">
       <!-- need to call newKeep on the onclick, might need function in repo -->
-      <input type="button" v-on:click="createKeep()" v-on:submit="GetById()">
+      <input type="button" v-on:click="createKeep()">
     </form>
+    <button type="button" v-on:click="GetAll()">get all</button>
     <form>form for creating vaults
       <input type="text" Default="name">
       <input type="text" Default="description">
@@ -15,6 +16,7 @@
       <input type="submit" v-on:submit="">
     </form>
     <ul>unordered list for keeps here</ul>
+    <li v-for="keep in keeps">{{keep.name}}</li>
     <!-- need to add logic to logout and @click -->
     <button v-on:click="Logout()">Logout</button>
   </div>
@@ -37,10 +39,19 @@
         }
       };
     },
+    computed: {
+      keeps() {
+        return this.$store.state.keeps
+      }
+    },
     methods: {
       createKeep() {
         console.log("hitting create keep from button")
         this.$store.dispatch("createKeep", this.newKeep)
+      },
+      GetAll() {
+        console.log("hitting getAll from button")
+        this.$store.dispatch("getAllKeeps")
       }
       // },
       // GetById() {
