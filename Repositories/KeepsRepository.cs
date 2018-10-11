@@ -24,15 +24,18 @@ namespace keepr.Repositories
     public Keep Create(Keep keep)
     {
       int id = _db.Execute(@"
-      INSERT INTO keeps (name, description, VaultId)
-      VALUES (@Name, @Description, @VaultId);
+      INSERT INTO keeps (name, description)
+      VALUES (@Name, @Description);
       ", keep
       );
+      //removed 3rd attribute of VaultId, was throwing error not in table.  Maybe change table to have that field if needed
+      //doesn't recognize name, not instantiated maybe?
+      // keep.Description = Description,
       keep.VaultId = id;
       return keep;
       {
         //   name = keep.Name,
-        //   description = keep.Description,
+        // keep.Name = name;
         //   vaultId = keep.VaultId
         // });
         // if (success != 1) { return null; }
