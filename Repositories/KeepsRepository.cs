@@ -23,10 +23,10 @@ namespace keepr.Repositories
     }
     public Keep Create(Keep keep)
     {
-      int id = _db.Execute(@"
+      int id = _db.ExecuteScalar<int>(@"
       INSERT INTO keeps (name, description)
       VALUES (@Name, @Description);
-      ", keep
+      SELECT LAST_INSERT_ID();", keep
       );
       //removed 3rd attribute of VaultId, was throwing error not in table.  Maybe change table to have that field if needed
       //doesn't recognize name, not instantiated maybe?
