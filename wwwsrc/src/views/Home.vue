@@ -7,8 +7,16 @@
       <div class="col">
         <h1> testing vaultkeep display area</h1>
         <button v-on:click="getKeepsByVaultId" class="btn btn-primary">get keeps by vault id </button>
+
+        <h5>trying to print vaultkeeps here</h5>
+        <ul>List of Vault+keeps:</ul>
+        <li v-for="vault in vaults">{{vaults}}<li v-for="keep in keeps">{{keeps}}</li>
+        </li>
+
       </div>
+
     </div>
+
     <div class="row">
       <div class="col-sm-12">
         <form>Create a Keep:
