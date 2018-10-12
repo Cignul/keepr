@@ -52,13 +52,14 @@ namespace keepr.Controllers
     { }
 
 
-    //VAULTKEEPS
-    [HttpGet("/keeps/{vaultId}")]
-    public IEnumerable<Keep> GetKeepsByVaultId()
-    {
-
-    }
-
-
   }
+  //VAULTKEEPS
+  // [HttpGet("/keeps/{vaultId}")]
+  // public IEnumerable<Keep> GetKeepsByVaultId()
+  // { }
 }
+
+
+
+
+
