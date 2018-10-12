@@ -65,7 +65,12 @@ export default new Vuex.Store({
           dispatch('getAllVaults')
 
         })
-
+    },
+    getKeepsByVaultId({ commit, dispatch }) {
+      api.get('vaults')
+        .then(res => {
+          commit('setVaults', 'setKeeps', res.data)
+        })
     },
 
     //user auth stuff

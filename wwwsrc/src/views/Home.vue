@@ -3,8 +3,12 @@
     <header>
       <h1 class="font-weight-thin.font-italic">Welcome to Keepr</h1>
     </header>
-
-    <!-- need to add onsubmit to create new keep -->
+    <div class="row">
+      <div class="col">
+        <h1> testing vaultkeep display area</h1>
+        <button v-on:click="getKeepsByVaultId" class="btn btn-primary">get keeps by vault id </button>
+      </div>
+    </div>
     <div class="row">
       <div class="col-sm-12">
         <form>Create a Keep:
@@ -117,7 +121,13 @@
       getAllVaults() {
         console.log("hitting getallVAultsfrom button")
         this.$store.dispatch("getAllVaults")
+      },
+      getKeepsByVaultId() {
+        console.log("htitingKeepsByVaultIdfrom button in store")
+        this.$store.dispatch("getKeepsByVaultId")
       }
+
+
       // },
       // GetById() {
       //   console.log("hitting getBYId in home.vue")
