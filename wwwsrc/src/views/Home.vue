@@ -62,8 +62,10 @@
               </div>
             </v-card-title>
             <v-card-actions>
+              <!-- todo: -->
+              <!-- 2 @clicks to increment view and keep ,@click to share -->
               <v-btn flat color="blue">View</v-btn>
-              <v-btn flat color="orange">Like</v-btn>
+              <v-btn flat color="orange">Keep</v-btn>
               <v-btn flat color="purple">Share</v-btn>
             </v-card-actions>
           </v-card>
