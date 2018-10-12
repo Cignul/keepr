@@ -1,33 +1,38 @@
+<!-- main vue, need to partition to others for improved ux -->
 <template>
   <div class="home">
+    <!-- title (header) -->
     <header>
       <h1 class="font-weight-thin.font-italic">Welcome to Keepr</h1>
     </header>
 
-
     <button type="button" v-on:click="Logout()" class="btn btn-primary">Logout</button>
+
     <div class="row">
       <div class="col-sm-12">
+
         <form>Create a Keep:
           <input type="text" Default="name" v-model="newKeep.name" class="form-control">
           <input type="text" Default="description" v-model="newKeep.description" class="form-control">
           <!-- need to call newKeep on the onclick, might need function in repo -->
           Create Keep-><input type="button" class="btn btn-primary" v-on:click="createKeep()">
         </form>
+
         <button type="button" v-on:click="GetAll()" class="btn btn-primary">get all keeps</button>
       </div>
     </div>
+
     <div class="row">
       <div class="col-sm-12">
         <form>Create a Vault:
           <input type="text" Default="name" v-model="newVault.name" class="form-control">
           <input type="text" Default="description" v-model="newVault.description" class="form-control">
-          <!-- need to call new vault function out of repo (i think, maybe vault model) -->
           Create Vault-> <input type="button" v-on:click="createVault()" class="btn btn-primary">
         </form>
         <button type="button" v-on:click="getAllVaults()" class="btn btn-primary">get all vaults</button>
       </div>
     </div>
+    <!-- left in for now to display data (very ugly though) -->
     <ul>List of Keeps:</ul>
     <li v-for="keep in keeps">{{keep.name}}</li>
 
@@ -35,7 +40,7 @@
     <li v-for="vault in vaults">{{vaults}}</li>
 
 
-    <!-- Vuetify CARD(from docs) -->
+    <!-- Vuetify CARD(from docs) need to make the buttons and image dynamic still-->
     <button v-on:click="getKeepsByVaultId" class="btn btn-primary">get keeps by vault id </button>
     <div>
       <v-layout>
@@ -52,7 +57,6 @@
             </v-img>
             <v-card-title>
               <div>
-
                 <span class="grey--text">{{vault.name}}</span><br>
                 <span>{{vault.description}}</span>
               </div>
@@ -124,12 +128,6 @@
         this.$store.dispatch("getKeepsByVaultId")
       },
       Logout() { }
-
-
-      // },
-      // GetById() {
-      //   console.log("hitting getBYId in home.vue")
-      //   this.$store.dispatch("GetById", this.GetById)
     }
   };
 </script>

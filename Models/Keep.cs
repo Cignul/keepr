@@ -14,6 +14,7 @@ namespace keepr.Models
     [Required]
     [MinLength(5)]
     public string Description { get; set; }
+    //Most likely need to add an image to make it more similar to pinterest, and a field for that input
 
     public Keep() { }
     //public Keep(string Name, string Description, int VaultId) { }  //parameterless constructor

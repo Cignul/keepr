@@ -10,10 +10,11 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace keepr.Controllers
 {
-  //not liking these decorations for some reason
+
   [Route("api/[controller]")]
   [ApiController]
 
+  //VAULT controller
   public class VaultsController : Controller
   {
     VaultsRepository _repo;
@@ -29,7 +30,7 @@ namespace keepr.Controllers
       return _repo.GetAllVaults();
     }
 
-    //post api/values
+    //vault post to api
     [HttpPost]
 
     public Vault Post([FromBody] Vault vault)
@@ -43,16 +44,20 @@ namespace keepr.Controllers
 
     [HttpPut("{id}")]
 
+    //vault put to api (update)
     public void Put(int id, [FromBody] string value)
     { }
 
     [HttpDelete("{id}")]
 
+    //delete a vault
     public void Delete(int id)
     { }
 
     //VAULTKEEPS
     [HttpGet("/keeps/{{vaultId}}")]
+
+    //many to many, method to get a Vault's associated Keeps by Id
     public IEnumerable<Keep> GetKeepsByVaultId(int vaultId)
     {
       return _repo.getKeepsByVaultId(vaultId);

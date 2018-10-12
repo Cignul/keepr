@@ -8,6 +8,8 @@ using Microsoft.AspNetCore.Authentication;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
+//controller for keeps
+
 namespace keepr.Controllers
 {
 
@@ -20,32 +22,32 @@ namespace keepr.Controllers
     {
       _repo = repo;
     }
-    //not sure if I need  {{ID}} on the httpget decoration
-    [HttpGet]
 
+    [HttpGet]
+    //get keeps
     public IEnumerable<Keep> Get()
     {
       return _repo.GetAll();
     }
 
-    //post api/values
+    //post keeps to api
+
     [HttpPost]
     public Keep Post([FromBody] Keep keep)
     {
       if (ModelState.IsValid)
       {
-        //keep = new Keep(keep.Name, keep.Description);
         return _repo.Create(keep);
 
       }
       throw new Exception("invalid keep");
     }
-    //put api/values/5
+    //put keeps to api (update)
     [HttpPut("{id}")]
     public void Put(int id, [FromBody] string value)
     { }
 
-    //DELETE api/keeps/{some id}
+    //DELETE keeps
     [HttpDelete("{id}")]
     public void Delete(int id)
     {

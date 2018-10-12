@@ -5,7 +5,7 @@ using keepr.Repositories;
 using Microsoft.AspNetCore.Authentication;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
-
+//given auth stuff- don't mess w/ it.
 namespace keepr.Controllers
 {
 
