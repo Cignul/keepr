@@ -52,9 +52,11 @@ namespace keepr.Controllers
     { }
 
     //VAULTKEEPS
-    // [HttpGet("/keeps/{vaultId}")]
-    // public IEnumerable<Keep> GetKeepsByVaultId()
-    // { }
+    [HttpGet("/keeps/{{vaultId}}")]
+    public IEnumerable<Keep> GetKeepsByVaultId(int vaultId)
+    {
+      return _repo.getKeepsByVaultId(vaultId);
+    }
 
   }
 }
