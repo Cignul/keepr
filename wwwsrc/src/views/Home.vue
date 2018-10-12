@@ -5,7 +5,7 @@
     </header>
 
 
-
+    <button type="button" v-on:click="Logout()" class="btn btn-primary">Logout</button>
     <div class="row">
       <div class="col-sm-12">
         <form>Create a Keep:
@@ -33,10 +33,9 @@
 
     <ul>List of Vaults:</ul>
     <li v-for="vault in vaults">{{vaults}}</li>
-    <!-- need to add logic to logout and @click -->
-    <button v-on:click="Logout()">Logout</button>
 
-    <!-- Vuetify CARD attempt (from docs) -->
+
+    <!-- Vuetify CARD(from docs) -->
     <button v-on:click="getKeepsByVaultId" class="btn btn-primary">get keeps by vault id </button>
     <div>
       <v-layout>
@@ -123,7 +122,8 @@
       getKeepsByVaultId() {
         console.log("htitingKeepsByVaultIdfrom button in store")
         this.$store.dispatch("getKeepsByVaultId")
-      }
+      },
+      Logout() { }
 
 
       // },
