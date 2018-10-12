@@ -28,14 +28,13 @@ namespace keepr.Models
     public string Description { get; set; }
     public int VaultId { get; set; }
   }
-  //NEED TO TEST THIS
   public class addKeep
   {
     [Required]
     //might need to update old id here also, most likely
     public int newVaultId { get; set; }
   }
-  //needs completion then testing
+  //TODO: needs completion then testing
   public class removeKeep
   {
 
