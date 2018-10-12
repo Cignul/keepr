@@ -10,7 +10,7 @@
 
         <h5>trying to print vaultkeeps here</h5>
         <ul>List of Vault+keeps:</ul>
-        <li v-for="vault in vaults">{{vaults}}<li v-for="keep in keeps">{{keeps}}</li>
+        <li v-for="vault in vaults">{{vault.name}}{{vaults}}<li v-for="keep in keeps">{{keep.name}}{{keeps}}</li>
         </li>
 
       </div>
