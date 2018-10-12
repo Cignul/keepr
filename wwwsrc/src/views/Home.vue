@@ -3,19 +3,8 @@
     <header>
       <h1 class="font-weight-thin.font-italic">Welcome to Keepr</h1>
     </header>
-    <div class="row">
-      <div class="col">
-        <h1> testing vaultkeep display area</h1>
-        <button v-on:click="getKeepsByVaultId" class="btn btn-primary">get keeps by vault id </button>
 
-        <h5>trying to print vaultkeeps here</h5>
-        <ul>List of Vault+keeps:</ul>
-        <li v-for="vault in vaults">{{vault.name}}{{vaults}}<li v-for="keep in keeps">{{keep.name}}{{keeps}}</li>
-        </li>
 
-      </div>
-
-    </div>
 
     <div class="row">
       <div class="col-sm-12">
@@ -47,31 +36,32 @@
     <!-- need to add logic to logout and @click -->
     <button v-on:click="Logout()">Logout</button>
 
+    <!-- Vuetify CARD attempt (from docs) -->
+    <button v-on:click="getKeepsByVaultId" class="btn btn-primary">get keeps by vault id </button>
     <div>
-      <!-- Vuetify CARD attempt (from docs) -->
       <v-layout>
-        <v-flex xs12 sm6 offset-sm3>
+        <v-flex xs12 sm6 offset-sm3 v-for="vault in vaults">
           <v-card>
             <v-img class="white--text" height="200px" src="https://cdn.vuetifyjs.com/images/cards/docks.jpg">
               <v-container fill-height fluid>
                 <v-layout fill-height>
                   <v-flex xs12 align-end flexbox>
-                    <span class="headline">Vault: $"{vault}"</span>
+                    <span class="headline">{{vault.name}}</span>
                   </v-flex>
                 </v-layout>
               </v-container>
             </v-img>
             <v-card-title>
               <div>
-                <span class="grey--text">Vault name</span><br>
-                <span>need interpolation for title</span><br>
-                <span>need interpolation here (description)</span>
+
+                <span class="grey--text">{{vault.name}}</span><br>
+                <span>{{vault.description}}</span>
               </div>
             </v-card-title>
             <v-card-actions>
-              <v-btn flat color="orange">View</v-btn>
+              <v-btn flat color="blue">View</v-btn>
               <v-btn flat color="orange">Like</v-btn>
-              <v-btn flat color="orange">Share</v-btn>
+              <v-btn flat color="purple">Share</v-btn>
             </v-card-actions>
           </v-card>
         </v-flex>
