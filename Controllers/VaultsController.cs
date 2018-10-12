@@ -53,8 +53,11 @@ namespace keepr.Controllers
 
 
     //VAULTKEEPS
-    //[HttpGet("/keeps/{vaultId}")]
-    //public IEnumerable<Keep> GetKeepsByVaultId()
+    [HttpGet("/keeps/{vaultId}")]
+    public IEnumerable<Keep> GetKeepsByVaultId()
+    {
+
+    }
 
 
   }
