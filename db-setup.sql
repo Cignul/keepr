@@ -66,4 +66,4 @@
 -- WHERE (vaultId = @vaultId) 
 
 -- DELETE FROM keeps;
-DELETE FROM vaults;
+-- DELETE FROM vaults;
