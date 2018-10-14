@@ -14,6 +14,8 @@ namespace keepr.Models
     [Required]
     [MinLength(5)]
     public string Description { get; set; }
+
+    public bool isPrivate { get; set; }
     //Most likely need to add an image to make it more similar to pinterest, and a field for that input
 
     public Keep() { }
@@ -27,6 +29,8 @@ namespace keepr.Models
     [Required]
     public string Description { get; set; }
     public int VaultId { get; set; }
+
+    public bool isPrivate { get; set; }
   }
   public class addKeep
   {
