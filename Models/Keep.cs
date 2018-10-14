@@ -15,6 +15,12 @@ namespace keepr.Models
     [MinLength(5)]
     public string Description { get; set; }
 
+    public string userId { get; set; }
+    public int views { get; set; }
+    public int shares { get; set; }
+
+    public int keeps { get; set; }
+
     public bool isPrivate { get; set; }
     //Most likely need to add an image to make it more similar to pinterest, and a field for that input
 
