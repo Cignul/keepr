@@ -63,7 +63,7 @@
 
 
     <!-- Vuetify CARD(from docs) need to make the buttons and image dynamic still-->
-    <!-- proving difficul to remove w/ out breaking html -->
+    <!-- proving difficult to remove w/ out breaking html -->
     <div>
       <v-layout>
         <v-flex xs12 sm6 offset-sm3 v-for="vault in vaults">
