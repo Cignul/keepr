@@ -8,6 +8,7 @@
         <h4>vk.name</h4>
         <h5>vk.description</h5>
         <!-- button for deleting vk -->
+        <button @click="">delete keep from this vault</button>
       </li>
     </ul>
   </div>
@@ -29,7 +30,7 @@
     props: ["vaultId"],
     computed: {
       vault() {
-        return this.$store.state.vaults.find(v => v.id == this.vaultId)
+        return this.$store.state.vaults.find(v => v.id == this.vaultId) || {}
       },
       vaultKeeps() {
         return this.$store.state.vaultKeeps
