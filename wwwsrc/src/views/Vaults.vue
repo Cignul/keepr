@@ -1,3 +1,5 @@
+<!-- need to get this linked when clicking a specific vault -->
+
 <template>
   <div class="vaults">
     Here are your vaults:
