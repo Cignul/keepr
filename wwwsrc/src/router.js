@@ -5,11 +5,11 @@ import Home from './views/Home.vue'
 // @ts-ignore
 import Login from './views/Login.vue'
 // @ts-ignore
-import Vaults from './views/Login.vue'
+import Vaults from './views/Vaults.vue'
 // @ts-ignore
-import Keep from './views/Login.vue'
+// import Keep from './views/Keep.vue'
 // @ts-ignore
-import Vault from './views/Login.vue'
+import Vault from './views/Vault.vue'
 Vue.use(Router)
 
 export default new Router({
@@ -30,14 +30,15 @@ export default new Router({
       component: Vaults
     },
     {
-      path: '/vault',
+      path: '/vault/:vaultId',
       name: 'vault',
+      props: true,
       component: Vault
     },
-    {
-      path: '/keep',
-      name: 'keep',
-      component: Keep
-    }
+    // {
+    //   path: '/keep',
+    //   name: 'keep',
+    //   component: Keep
+    // }
   ]
 })

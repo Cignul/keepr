@@ -23,6 +23,7 @@ export default new Vuex.Store({
     user: {},
     keeps: {},
     vaults: {},
+    vaultKeeps: []
   },
   mutations: {
     setUser(state, user) {
@@ -33,6 +34,9 @@ export default new Vuex.Store({
     },
     setVaults(state, vaults) {
       state.vaults = vaults;
+    },
+    setVaultKeeps(state, data) {
+      state.vaultKeeps = data
     }
   },
   actions: {
@@ -66,20 +70,34 @@ export default new Vuex.Store({
 
         })
     },
-    getKeepsByVaultId({ commit, dispatch }) {
-      api.get('vaults')
-        .then(res => {
-          commit('setVaults', res.data)
-        }),
+    // getKeepsByVaultId({ commit, dispatch }) {
+    //   api.get('vaults')
+    //     .then(res => {
+    //       commit('setVaults', res.data)
+    //     }),
 
 
-        api.get('keeps')
-          .then(res => {
-            commit('setKeeps', res.data)
-          })
+    //     api.get('keeps')
+    //       .then(res => {
+    //         commit('setKeeps', res.data)
+    //       })
 
-    },
+    // },
     //need to add delete vault method here
+
+
+
+
+    getVaultKeeps({ commit, dispatch }, vaultId) {
+      api.get('vaults/keeps/' + vaultId)
+        .then(res => {
+          commit('setVaultKeeps', res.data)
+        })
+    },
+
+
+
+
 
     //user auth stuff
     register({ commit, dispatch }, newUser) {
@@ -96,6 +114,7 @@ export default new Vuex.Store({
       auth.get('authenticate')
         .then(res => {
           commit('setUser', res.data)
+          dispatch("getAllVaults")
           router.push({ name: 'home' })
         })
         .catch(e => {
@@ -106,6 +125,7 @@ export default new Vuex.Store({
       auth.post('login', creds)
         .then(res => {
           commit('setUser', res.data)
+          dispatch("getAllVaults")
           router.push({ name: 'home' })
         })
         .catch(e => {

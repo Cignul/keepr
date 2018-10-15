@@ -3,11 +3,24 @@ using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Security.Claims;
 
+
 namespace keepr.Models
 {
+
+  public class VaultKeep
+  {
+    [Required]
+    public int KeepId { get; set; }
+    [Required]
+    public int VaultId { get; set; }
+    public string UserId { get; set; }
+  }
+
+
   public class Keep // CONSTRUCTOR still need to test helper methods to create, add, delete
   {
-    public int Id;
+    //not sure if i need to include id or auto generated from table
+    public int id;
     [Required]
     [MinLength(2)]
     public string Name { get; set; }
@@ -16,6 +29,9 @@ namespace keepr.Models
     public string Description { get; set; }
 
     public string userId { get; set; }
+
+    //not sure if string is correct type here
+    public string img { get; set; }
     public int views { get; set; }
     public int shares { get; set; }
 

@@ -5,11 +5,11 @@
     Here are your vaults:
     <form @submit.prevent="addVault">
       <input type="text" placeholder="New Vault" v-model="newVault.title" required>
-      <input type="text" placeholder="description" v-model="newVaut.description">
+      <input type="text" placeholder="description" v-model="newVault.description">
       <button class="btn btn-success" type="submit">Create Vault</button>
     </form>
     <div v-for="Vault in vaults" :key="Vault._id">
-      <router-link :to="{name: 'vaults', params: {vaultId: Vault._id}}">{{Vault.title}}</router-link>
+      <router-link :to="{name: 'vault', params: {vaultId: Vault.id}}">{{Vault.name}}</router-link>
       <button class="btn btn-dark" @click="deleteVault(Vault._id)">Delete Vault</button>
     </div>
   </div>
@@ -20,12 +20,9 @@
     name: "vaults",
     created() {
       //blocks users not logged in
-      if (!this.$store.state.user._id) {
+      if (!this.$store.state.user.id) {
         this.$router.push({ name: "login" });
       }
-    },
-    mounted() {
-      this.$store.dispatch("getVaults");
     },
     data() {
       return {

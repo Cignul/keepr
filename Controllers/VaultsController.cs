@@ -54,7 +54,7 @@ namespace keepr.Controllers
     public void Delete(int id)
     { }
 
-    //VAULTKEEPS
+    //GET VAULTKEEPS
     [HttpGet("/keeps/{{vaultId}}")]
 
     //many to many, method to get a Vault's associated Keeps by Id
@@ -63,6 +63,18 @@ namespace keepr.Controllers
       return _repo.getKeepsByVaultId(vaultId);
     }
 
+    //CREATE VAULTKEEP
+    [Authorize]
+    [HttpPost("/keeps")]
+    public bool CreateVaultkeep([FromBody]VaultKeep vkdata)
+    {
+      if (ModelState.IsValid)
+      {
+        vkdata.UserId = HttpContext.User.Identity.Name;
+        return _repo.CreateVaultKeep(vkdata);
+      }
+      return false;
+    }
   }
 }
 

@@ -1,14 +1,15 @@
 <template>
   <div class="vault">
-    {{vaultId.title}}
-    <form v-on:submit.prevent="createVault">
-      <input type="text" name="title" v-model="newVault.title" placeholder="New Vault">
-      <input type="text" name="description" v-model="newVault.description" placeholder="description">
-      <button class="btn btn-success" type="submit">Send It</button>
-    </form>
-    <list :listData="vault" v-for="vault in vaults" :key="vault._id" />
+    {{vault.name}}
 
-    <!-- <button class="btn btn-light" type="submit">Logout</button> -->
+    <!-- EDIT TO MAKE PRETTY -->
+    <ul>
+      <li v-for="vk in vaultKeeps">
+        <h4>vk.name</h4>
+        <h5>vk.description</h5>
+        <!-- button for deleting vk -->
+      </li>
+    </ul>
   </div>
 
 </template>
@@ -17,37 +18,24 @@
   import vault from "../views/Vaults.vue"
   export default {
     name: "vault",
+    // mounted() {
+    //   this.$store.dispatch("getVaultKeeps", this.vaultId)
+    // },
     data() {
       return {
         newVault: { title: "", description: "" }
       }
     },
-    created() {
-      //blocks users not logged in
-      if (!this.$store.state.user._id) {
-        this.$router.push({ name: "login" });
-      }
-      else (this.$store.dispatch("getVaults", this.boardId))
-    },
     props: ["vaultId"],
     computed: {
-      vaults() {
-        return this.$store.state.vaults
+      vault() {
+        return this.$store.state.vaults.find(v => v.id == this.vaultId)
       },
-    },
-    keeps() {
-      return this.$store.state.keeps
-    }
-    ,
-    components: {
-      vault
+      vaultkeeps() {
+        return this.$store.state.vaultkeeps
+      }
     },
     methods: {
-      getVault() { this.$store.dispatch("register", this.newUser); },
-      createVault() {
-        this.$store.dispatch("addVault", this.newVault)
-        console.log("Hello from createVault")
-      }
     }
   };
 </script>

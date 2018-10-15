@@ -5,43 +5,64 @@
     <header>
       <h1 class="font-weight-thin.font-italic">Welcome to Keepr</h1>
     </header>
-
+    <!-- will need to add v-if="user.id" to render if no user exists -->
     <button type="button" v-on:click="Logout()" class="btn btn-primary">Logout</button>
 
     <div class="row">
       <div class="col-sm-12">
-
-        <form>Create a Keep:
-          <input type="text" Default="name" v-model="newKeep.name" class="form-control">
-          <input type="text" Default="description" v-model="newKeep.description" class="form-control">
+        <form @submit.prevent="createKeep">Create a Keep:
+          <input type="text" Default="name" v-model="newKeep.name" class="form-control" placeholder="Name">
+          <input type="text" Default="description" v-model="newKeep.description" class="form-control" placeholder="Description">
           <!-- need to call newKeep on the onclick, might need function in repo -->
-          Create Keep-><input type="button" class="btn btn-primary" v-on:click="createKeep()">
+          <button type="submit" class="btn btn-primary">Create Keep</button>
         </form>
-
-        <button type="button" v-on:click="GetAll()" class="btn btn-primary">get all keeps</button>
       </div>
     </div>
-
     <div class="row">
       <div class="col-sm-12">
-        <form>Create a Vault:
-          <input type="text" Default="name" v-model="newVault.name" class="form-control">
-          <input type="text" Default="description" v-model="newVault.description" class="form-control">
-          Create Vault-> <input type="button" v-on:click="createVault()" class="btn btn-primary">
+        <form @submit.prevent="createVault">Create a Vault:
+          <input type="text" Default="name" v-model="newVault.name" class="form-control" placeholder="name">
+          <input type="text" Default="description" v-model="newVault.description" class="form-control" placeholder="description">
+          <button type="submit" class="btn btn-primary">Create Vault</button>
         </form>
-        <button type="button" v-on:click="getAllVaults()" class="btn btn-primary">get all vaults</button>
       </div>
     </div>
     <!-- left in for now to display data (very ugly though) -->
-    <ul>List of Keeps:</ul>
-    <li v-for="keep in keeps">{{keep.name}}</li>
+    <ul>
+      <h1>List of Keeps:</h1>
+    </ul>
+    <li v-for="keep in keeps">
+      <div>
+        <h4>{{keep.name}}</h4>
+        <h5>{{keep.description}}</h5>
+        <!-- add to vault -->
+        <div class="dropdown">
+          <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown"
+            aria-haspopup="true" aria-expanded="false">
+            Dropdown button
+          </button>
+          <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+            <a @click="addToVault(keep.id, vault.id)" v-for="vault in vaults">{{vault.name}}</a>
+          </div>
+        </div>
+      </div>
+    </li>
 
-    <ul>List of Vaults:</ul>
-    <li v-for="vault in vaults">{{vaults}}</li>
+    <!-- v-if="user.id" -->
+    <router-link :to="{name: 'vaults'}">GO TO VAULTS</router-link>
+    <!-- navigate to vault view -->
+    <!-- <ul>
+      <h1>List of Vaults:</h1>
+    </ul>
+    <li v-for="vault in vaults">
+      <div>
+        <h4>{{vault.name}}</h4>
+        <h5>{{vault.description}}</h5>
+      </div>
+    </li> -->
 
 
     <!-- Vuetify CARD(from docs) need to make the buttons and image dynamic still-->
-    <button v-on:click="getKeepsByVaultId" class="btn btn-primary">get keeps by vault id </button>
     <div>
       <v-layout>
         <v-flex xs12 sm6 offset-sm3 v-for="vault in vaults">
@@ -80,9 +101,11 @@
   export default {
     name: "home",
     mounted() {
-      //blocks users not logged in
+      this.$store.dispatch("getAllKeeps")
       if (!this.$store.state.user.id) {
         this.$router.push({ name: "login" });
+      } else {
+        this.$store.dispatch("getAllVaults")
       }
     },
     data() {
@@ -104,11 +127,14 @@
       vaults() {
         return this.$store.state.vaults
       },
-      Lougout() {
-        return this.$store.state.setUser = false;
+      user() {
+        return this.$store.state.user
       }
     },
     methods: {
+      addToVault(keepid, vaultid) {
+        console.log(keepid, vaultid)
+      },
       createKeep() {
         console.log("hitting create keep from button")
         this.$store.dispatch("createKeep", this.newKeep)

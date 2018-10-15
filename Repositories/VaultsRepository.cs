@@ -34,7 +34,7 @@ namespace keepr.Repositories
       );
 
       // keep.Description = Description,
-      vault.Id = id;
+      vault.id = id;
       return vault;
       {
       }
@@ -46,6 +46,19 @@ namespace keepr.Repositories
         SELECT * FROM vaultkeeps vk
         INNER JOIN keeps k ON k.id = vk.keepId 
         WHERE (vaultId = @vaultId) ", new { vaultId });
+    }
+
+    public bool CreateVaultKeep(VaultKeep vkdata)
+    {
+      var resolved = _db.Execute(@"
+        INSERT INTO vaultkeeps (vaultId, keepId, userId)
+        VALUES (@VaultId, @KeepId, @UserId)
+      ", vkdata);
+      if (resolved > 0)
+      {
+        return true;
+      }
+      return false;
     }
   }
 }
