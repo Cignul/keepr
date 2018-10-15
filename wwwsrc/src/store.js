@@ -79,6 +79,7 @@ export default new Vuex.Store({
           })
 
     },
+    //need to add delete vault method here
 
     //user auth stuff
     register({ commit, dispatch }, newUser) {
