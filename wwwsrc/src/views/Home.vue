@@ -36,6 +36,7 @@
         <h4>{{keep.name}}</h4>
         <h5>{{keep.description}}</h5>
         <!-- add to vault -->
+        <!-- drop down not working need to fix -->
         <div class="dropdown">
           <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown"
             aria-haspopup="true" aria-expanded="false">
@@ -48,18 +49,10 @@
       </div>
     </li>
 
-    <!-- v-if="user.id" -->
-    <router-link :to="{name: 'vaults'}">GO TO VAULTS</router-link>
-    <!-- navigate to vault view -->
-    <!-- <ul>
-      <h1>List of Vaults:</h1>
-    </ul>
-    <li v-for="vault in vaults">
-      <div>
-        <h4>{{vault.name}}</h4>
-        <h5>{{vault.description}}</h5>
-      </div>
-    </li> -->
+
+    <router-link :to="{name: 'vaults'}" v-if="user.id">GO TO VAULTS</router-link>
+
+
 
 
     <!-- Vuetify CARD(from docs) need to make the buttons and image dynamic still-->
