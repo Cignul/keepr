@@ -45,6 +45,7 @@
           <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
             <!-- @ click not working, on click won't fire either -->
             <p @click="addToVault(keep.id, vault.id)" v-for="vault in vaults">{{vault.name}}</p>
+            <!-- didn't work <b-dropdown-item>First Action</b-dropdown-item> -->
           </div>
         </div>
       </div>
