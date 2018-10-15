@@ -18,9 +18,9 @@
   import vault from "../views/Vaults.vue"
   export default {
     name: "vault",
-    // mounted() {
-    //   this.$store.dispatch("getVaultKeeps", this.vaultId)
-    // },
+    mounted() {
+      this.$store.dispatch("getVaultKeeps", this.vaultId)
+    },
     data() {
       return {
         newVault: { title: "", description: "" }
@@ -36,6 +36,7 @@
       }
     },
     methods: {
+      getVaultKeeps() { }
     }
   };
 </script>
