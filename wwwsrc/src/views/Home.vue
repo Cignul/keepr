@@ -149,7 +149,7 @@
         this.$store.dispatch("createVault", this.newVault)
       },
       getAllVaults() {
-        console.log("hitting getallVAultsfrom button")
+        console.log("hitting getallVaultsfrom button")
         this.$store.dispatch("getAllVaults")
       },
       getKeepsByVaultId() {

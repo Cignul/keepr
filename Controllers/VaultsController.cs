@@ -55,7 +55,7 @@ namespace keepr.Controllers
     { }
 
     //GET VAULTKEEPS
-    [HttpGet("/keeps/{{vaultId}}")]
+    [HttpGet("keeps/{vaultId}")]
 
     //many to many, method to get a Vault's associated Keeps by Id
     public IEnumerable<Keep> GetKeepsByVaultId(int vaultId)
