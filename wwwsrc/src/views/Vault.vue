@@ -31,8 +31,8 @@
       vault() {
         return this.$store.state.vaults.find(v => v.id == this.vaultId)
       },
-      vaultkeeps() {
-        return this.$store.state.vaultkeeps
+      vaultKeeps() {
+        return this.$store.state.vaultKeeps
       }
     },
     methods: {
