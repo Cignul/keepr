@@ -43,7 +43,7 @@
             Dropdown button
           </button>
           <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-            <a @click="addToVault(keep.id, vault.id)" v-for="vault in vaults">{{vault.name}}</a>
+            <p @click="addToVault(keep.id, vault.id)" v-for="vault in vaults">{{vault.name}}</p>
           </div>
         </div>
       </div>
