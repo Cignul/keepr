@@ -1,7 +1,7 @@
 <template>
   <div class="vault">
     {{vault.title}}
-    <!-- this might not work here -->
+    <!-- this might not work here wrong var name i think-->
     <keep :keepData="keep" v-for="keep in keeps" :key="keep._id" />
     <form v-on:submit.prevent="createKeep">
       <input type="text" name="description" v-model="newKeep.description" placeholder="keep description">
