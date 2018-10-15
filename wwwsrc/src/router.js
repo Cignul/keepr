@@ -4,7 +4,12 @@ import Router from 'vue-router'
 import Home from './views/Home.vue'
 // @ts-ignore
 import Login from './views/Login.vue'
-
+// @ts-ignore
+import Vaults from './views/Login.vue'
+// @ts-ignore
+import Keep from './views/Login.vue'
+// @ts-ignore
+import Vault from './views/Login.vue'
 Vue.use(Router)
 
 export default new Router({
@@ -18,6 +23,21 @@ export default new Router({
       path: '/login',
       name: 'login',
       component: Login
+    },
+    {
+      path: '/vaults',
+      name: 'vaults',
+      component: Vaults
+    },
+    {
+      path: '/vault',
+      name: 'vault',
+      component: Vault
+    },
+    {
+      path: '/keep',
+      name: 'keep',
+      component: Keep
     }
   ]
 })
