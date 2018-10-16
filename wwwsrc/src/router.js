@@ -35,10 +35,5 @@ export default new Router({
       props: true,
       component: Vault
     },
-    // {
-    //   path: '/keep',
-    //   name: 'keep',
-    //   component: Keep
-    // }
   ]
 })
