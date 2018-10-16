@@ -21,12 +21,13 @@
         </form>
       </div>
     </div>
-    <div class="row">
+    <!-- trying to make dropdown work with v-app tag -->
+    <div class="row" v-app="app">
       <div class="col-sm-12">
         <form @submit.prevent="createVault">Create a Vault:
           <input type="text" Default="name" v-model="newVault.name" class="form-control" placeholder="name">
           <input type="text" Default="description" v-model="newVault.description" class="form-control" placeholder="description">
-          <button type="submit" class="btn btn-primary">Create Vault</button>
+          <button type="submit" class="btn btn-primary" @click="createVault">Create Vault</button>
         </form>
       </div>
     </div>
