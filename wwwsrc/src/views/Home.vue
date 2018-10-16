@@ -21,8 +21,7 @@
         </form>
       </div>
     </div>
-    <!-- trying to make dropdown work with v-app tag -->
-    <div class="row" v-app="app">
+    <div class="row">
       <div class="col-sm-12">
         <form @submit.prevent="createVault">Create a Vault:
           <input type="text" Default="name" v-model="newVault.name" class="form-control" placeholder="name">
@@ -40,15 +39,15 @@
         <h4>{{keep.name}}</h4>
         <h5>{{keep.description}}</h5>
         <!-- add to vault -->
-        <!-- can't seem to find a workaround for the @click override -->
-        <div class="dropdown">
+        <!-- can't seem to find a workaround for the @click override trying v-app wrapper-->
+        <div class="dropdown" v-app="app">
           <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown"
             aria-haspopup="true" aria-expanded="false">
             Dropdown button
           </button>
           <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
             <!-- @ click not working, on click won't fire either -->
-            <p @click="addToVault(keep.id, vault.id)" v-for="vault in vaults">{{vault.name}}</p>
+            <p v-app="app" @click="addToVault(keep.id, vault.id)" v-for="vault in vaults">{{vault.name}}</p>
             <!-- didn't work <b-dropdown-item>First Action</b-dropdown-item> -->
           </div>
         </div>
