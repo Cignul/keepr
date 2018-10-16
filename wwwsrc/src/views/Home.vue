@@ -30,7 +30,7 @@
         </form>
       </div>
     </div>
-    <!-- left in for now to display data (very ugly though) -->
+    <!-- left in for now to display data needs some better styling  -->
     <ul>
       <h1>List of Keeps:</h1>
     </ul>
@@ -39,7 +39,7 @@
         <h4>{{keep.name}}</h4>
         <h5>{{keep.description}}</h5>
         <!-- add to vault -->
-        <!-- drop down not working need to fix -->
+        <!-- can't seem to find a workaround for the @click override -->
         <div class="dropdown">
           <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown"
             aria-haspopup="true" aria-expanded="false">
