@@ -55,7 +55,7 @@ namespace keepr.Repositories
         VALUES (@VaultId, @KeepId, @UserId)
       ", vaultKeep);
 
-      vaultKeep.Id = id;
+      vaultKeep.id = id;
       return vaultKeep;
 
 
