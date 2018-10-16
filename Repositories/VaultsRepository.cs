@@ -20,6 +20,11 @@ namespace keepr.Repositories
     {
       return _db.Query<Vault>("SELECT * FROM vaults;");
     }
+
+    public IEnumerable<VaultKeep> GetAll()
+    {
+      return _db.Query<VaultKeep>($"SELECT * FROM vaultkeeps");
+    }
     public Vault GetById(int id)
     {
       return _db.Query<Vault>("SELECT * FROM vaults WHERE id = @id;", new { id }).FirstOrDefault();
