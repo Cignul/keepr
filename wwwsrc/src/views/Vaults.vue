@@ -1,4 +1,5 @@
 <!-- need to get this linked when clicking a specific vault -->
+<!-- this serves as my dashboard -->
 
 <template>
   <div class="vaults">
