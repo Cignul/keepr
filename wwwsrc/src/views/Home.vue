@@ -40,6 +40,8 @@
         <h5>{{keep.description}}</h5>
         <!-- add to vault -->
         <!-- can't seem to find a workaround for the @click override trying v-app wrapper-->
+        <!-- might be like this  -->
+        <!-- <v-app="app"></v-app> -->
         <div class="dropdown">
           <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown"
             aria-haspopup="true" aria-expanded="false" v-app="app">
