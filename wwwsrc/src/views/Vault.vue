@@ -38,7 +38,12 @@
       }
     },
     methods: {
-      getVaultKeeps() { }
+      getVaultKeeps() { },
+
+
+      deleteVault(vaultId) {
+        this.$store.dispatch("deleteVault", vaultId);
+      }
     }
   };
 </script>
