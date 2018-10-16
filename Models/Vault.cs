@@ -15,6 +15,7 @@ namespace keepr.Models
     [MinLength(5)]
     public string Description { get; set; }
     public int userId { get; set; }
+    public int id { get; set; }
     public Vault() { }  //parameterless constructor
 
   }
