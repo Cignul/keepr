@@ -8,37 +8,17 @@ using System.Collections.Generic;
 
 namespace keepr.Repositories
 {
-  public class VaultsRepository
+  public class VaultKeepsRepository
   {
-    IDbConnection _db;
+    private IDbConnection _db;
 
-    public VaultsRepository(IDbConnection db)
+    public VaultKeepsRepository(IDbConnection db)
     {
       _db = db;
     }
-    public IEnumerable<Vault> GetAllVaults()
+    public IEnumerable<VaultKeep> GetAll()
     {
-      return _db.Query<Vault>("SELECT * FROM vaults;");
-    }
-
-    public Vault GetById(int id)
-    {
-      return _db.Query<Vault>("SELECT * FROM vaults WHERE id = @id;", new { id }).FirstOrDefault();
-    }
-
-    public Vault Create(Vault vault)
-    {
-      int id = _db.ExecuteScalar<int>(@"
-      INSERT INTO vaults (name, description)
-      VALUES (@Name, @Description);
-      SELECT LAST_INSERT_ID();", vault
-      );
-
-      // keep.Description = Description,
-      vault.id = id;
-      return vault;
-      {
-      }
+      return _db.Query<VaultKeep>($"SELECT * FROM vaultkeeps");
     }
 
     public IEnumerable<Keep> getKeepsByVaultId(int vaultId)
@@ -64,3 +44,4 @@ namespace keepr.Repositories
     }
   }
 }
+

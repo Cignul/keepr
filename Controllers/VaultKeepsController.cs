@@ -16,9 +16,9 @@ namespace keepr.Controllers
   [ApiController]
   public class VaultKeepsController : Controller
   {
-    VaultsRepository _repo;
+    VaultKeepsRepository _repo;
 
-    public VaultKeepsController(VaultsRepository repo)
+    public VaultKeepsController(VaultKeepsRepository repo)
     {
       _repo = repo;
     }
