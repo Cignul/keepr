@@ -4,7 +4,8 @@
 
     <!-- EDIT TO MAKE PRETTY -->
     <ul>
-      <li v-for="vk in vaultKeeps">
+      <li v-for="vk in vaultKeeps" :key="vk.id">
+        <img :src="vk.img">
         <h4>vk.name</h4>
         <h5>vk.description</h5>
         <!-- button for deleting vk -->
