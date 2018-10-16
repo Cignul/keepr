@@ -65,12 +65,13 @@ namespace keepr.Controllers
 
     //CREATE VAULTKEEP
     [Authorize]
-    [HttpPost("/keeps")]
-    public VaultKeep CreateVaultkeep([FromBody]VaultKeep vkdata)
+    // [HttpPost("/vaultKeeps")]
+    [HttpPost]
+    public VaultKeep Post([FromBody]VaultKeep vkdata)
     {
       if (ModelState.IsValid)
       {
-        vkdata.UserId = HttpContext.User.Identity.Name;
+        vkdata = new VaultKeep(vkdata.VaultId, vkdata.KeepId, vkdata.UserId);
         return _repo.CreateVaultKeep(vkdata);
       }
       throw new System.Exception("invalid createVaultKeep");

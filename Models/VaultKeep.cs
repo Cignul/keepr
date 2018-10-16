@@ -15,5 +15,13 @@ namespace keepr.Models
     [Required]
     public int VaultId { get; set; }
     public string UserId { get; set; }
+
+    public VaultKeep(int vaultId, int keepId, string userId)
+    {
+      VaultId = vaultId;
+      KeepId = keepId;
+      UserId = userId;
+    }
+    public VaultKeep() { }
   }
 }
