@@ -48,17 +48,17 @@ namespace keepr.Repositories
         WHERE (vaultId = @vaultId) ", new { vaultId });
     }
 
-    public bool CreateVaultKeep(VaultKeep vkdata)
+    public VaultKeep CreateVaultKeep(VaultKeep vaultKeep)
     {
-      var resolved = _db.Execute(@"
+      int id = _db.ExecuteScalar<int>(@"
         INSERT INTO vaultkeeps (vaultId, keepId, userId)
         VALUES (@VaultId, @KeepId, @UserId)
-      ", vkdata);
-      if (resolved > 0)
-      {
-        return true;
-      }
-      return false;
+      ", vaultKeep);
+
+      vaultKeep.Id = id;
+      return vaultKeep;
+
+
     }
   }
 }
