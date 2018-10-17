@@ -10,7 +10,9 @@
       <button class="btn btn-success" type="submit">Create Vault</button>
     </form>
     <div v-for="Vault in vaults" :key="Vault._id">
-      <router-link :to="{name: 'vault', params: {vaultId: Vault.id}}">{{Vault.name}}</router-link>
+      <h2>
+        <router-link :to="{name: 'vault', params: {vaultId: Vault.id}}">{{Vault.name}}</router-link>
+      </h2>
       <button class="btn btn-dark" @click="deleteVault(Vault._id)">Delete Vault</button>
     </div>
   </div>
