@@ -84,6 +84,13 @@ export default new Vuex.Store({
 
         })
     },
+    // route not found
+    addToVault({ commit, dispatch }, vaultId) {
+      api.put('keeps', vaultId)
+        .then(res => {
+          commit('keep', vaultId)
+        })
+    },
     //need to add delete vault method here
 
 

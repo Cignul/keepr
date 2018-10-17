@@ -42,22 +42,22 @@
 
 
         <div class="dropdown">
-          <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown"
+          <button class="btn btn-secondary dropdown-toggle" type="button" id="menuButton" data-toggle="dropdown"
             aria-haspopup="true" aria-expanded="false">
-            Dropdown Menu
+            Add Keep to Vault
           </button>
 
-          <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-            <!-- @ click not working, on click won't fire either -->
-            <a @click="addToVault(keep.id, vault.id)" v-for="vault in vaults">{{vault.name}}</a>
-            <!-- was testing dropdown for interactivity, nothing -->
-            <a class="dropdown-item" href="#">Action</a>
-            <a class="dropdown-item" href="#">Another action</a>
-            <a class="dropdown-item" href="#">Something else here</a>
+          <div class="dropdown-menu" aria-labelledby="menuButton">
+
+            <a @click="addToVault(keep.id, vault.id)" v-for="vault in vaults"><button class="btn btn-primary" @click="addToVault(keep.id, vault.id)">{{vault.name}}</button></a>
+
+
           </div>
         </div>
       </div>
     </li>
+
+
 
 
     <router-link :to="{name: 'vaults'}" v-if="user.id">GO TO VAULTS</router-link>
@@ -105,6 +105,7 @@
     methods: {
       addToVault(keepid, vaultid) {
         console.log(keepid, vaultid)
+        this.$store.dispatch("addToVault", this.vaultid)
       },
       createKeep() {
         console.log("hitting create keep from button")
