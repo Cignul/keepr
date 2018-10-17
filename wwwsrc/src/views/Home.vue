@@ -35,12 +35,12 @@
     </ul>
     <li v-for="keep in keeps">
       <div>
-        <h4>{{keep.name}}</h4>
+        <h4 data-toggle="tooltip" data-placement="top" title="testHover">{{keep.name}}</h4>
         <h5>{{keep.description}}</h5>
         <p @click="incrementViews">views: {{keep.views}}</p>
         <p @click="incrementKeeps">keeps: {{keep.keeps}}</p>
         <p @click="incrementShares">shares: {{keep.shares}}</p>
-        <button>view</button><button>keep</button><button>share</button>
+        <button type="button" data-toggle="tooltip" data-placement="top" title="testHover">view</button><button>keep</button><button>share</button>
         <!-- add to vault -->
 
 
