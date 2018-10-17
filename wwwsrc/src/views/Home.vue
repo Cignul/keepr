@@ -39,18 +39,21 @@
         <h4>{{keep.name}}</h4>
         <h5>{{keep.description}}</h5>
         <!-- add to vault -->
-        <!-- can't seem to find a workaround for the @click override trying v-app wrapper-->
-        <!-- might be like this  -->
+
 
         <div class="dropdown">
           <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown"
             aria-haspopup="true" aria-expanded="false">
-            Dropdown button
+            Dropdown Menu
           </button>
+
           <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
             <!-- @ click not working, on click won't fire either -->
-            <p @click="addToVault(keep.id, vault.id)" v-for="vault in vaults">{{vault.name}}</p>
-            <!-- didn't work <b-dropdown-item>First Action</b-dropdown-item> -->
+            <a @click="addToVault(keep.id, vault.id)" v-for="vault in vaults">{{vault.name}}</a>
+            <!-- was testing dropdown for interactivity, nothing -->
+            <a class="dropdown-item" href="#">Action</a>
+            <a class="dropdown-item" href="#">Another action</a>
+            <a class="dropdown-item" href="#">Something else here</a>
           </div>
         </div>
       </div>
