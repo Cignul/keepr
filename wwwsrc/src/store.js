@@ -23,7 +23,8 @@ export default new Vuex.Store({
     user: {},
     keeps: [],
     vaults: [],
-    vaultKeeps: []
+    vaultKeeps: [],
+    vaultId: "",
   },
   mutations: {
     setUser(state, user) {
@@ -37,6 +38,9 @@ export default new Vuex.Store({
     },
     setVaultKeeps(state, vaultKeeps) {
       state.vaultKeeps = vaultKeeps
+    },
+    deleteVault(state, vaultId) {
+      state.vaultId = vaultId
     },
     incrementKeeps(keep) {
 
@@ -94,7 +98,17 @@ export default new Vuex.Store({
           commit('keep', vaultId)
         })
     },
-    //need to add delete vault method here
+
+    deleteVault({ commit, dispatch }, vaultId) {
+      api.delete('vaults/' + vaultId)
+        .then(res => {
+          dispatch('getVaultsByUserId')
+        })
+        .catch(e => {
+          console.log('error:', e)
+        })
+    },
+
 
 
 
