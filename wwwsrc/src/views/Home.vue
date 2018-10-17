@@ -14,8 +14,6 @@
           <input type="text" Default="description" v-model="newKeep.description" class="form-control" placeholder="Description">
           <input type="text" Default="imgUrl" v-model="newKeep.imgUrl" class="form-control" placeholder="imgUrl">
 
-
-          <!-- need to call newKeep on the onclick, might need function in repo -->
           <button type="submit" class="btn btn-primary">Create Keep</button>
         </form>
       </div>
@@ -29,9 +27,9 @@
         </form>
       </div>
     </div>
-    <!-- left in for now to display data needs some better styling  -->
+    <!-- public keeps view  -->
     <ul>
-      <h3>List of Keeps:</h3>
+      <h3>List of Public Keeps:</h3>
     </ul>
     <li v-for="keep in keeps">
       <div>
@@ -42,16 +40,12 @@
         <p @click="incrementShares">shares: {{keep.shares}}</p>
         <button type="button" data-toggle="tooltip" data-placement="top" title="testHover">view</button><button>keep</button><button>share</button>
         <!-- add to vault -->
-
-
         <div class="dropdown">
           <button class="btn btn-secondary dropdown-toggle" type="button" id="menuButton" data-toggle="dropdown"
             aria-haspopup="true" aria-expanded="false">
             Add Keep to Vault
           </button>
-
           <div class="dropdown-menu" aria-labelledby="menuButton">
-
             <a @click="addToVault(keep.id, vault.id)" v-for="vault in vaults"><button class="btn btn-primary" @click="addToVault(keep.id, vault.id)">{{vault.name}}</button></a>
 
 
