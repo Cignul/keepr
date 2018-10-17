@@ -108,7 +108,7 @@
         if (this.chosenVaultId) {
           console.log(chosenVaultId)
           this.$store.dispatch("addToVault", {
-            keepId: this.keepData.id,
+            keepId: this.keeps.id,
             vaultId: this.chosenVaultId,
           });
         }
