@@ -40,12 +40,15 @@
         <p @click="incrementShares">shares: {{keep.shares}}</p>
         <button type="button" data-toggle="tooltip" data-placement="top" title="testHover">view</button><button>keep</button><button>share</button>
         <!-- add to vault -->
+
         <div class="dropdown">
           <button class="btn btn-secondary dropdown-toggle" type="button" id="menuButton" data-toggle="dropdown"
             aria-haspopup="true" aria-expanded="false">
             Add Keep to Vault
           </button>
+
           <div class="dropdown-menu" aria-labelledby="menuButton">
+
             <a @click="addToVault(keep.id, vault.id)" v-for="vault in vaults"><button class="btn btn-primary" @click="addToVault(keep.id, vault.id)">{{vault.name}}</button></a>
 
 
