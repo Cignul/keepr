@@ -37,7 +37,8 @@ namespace keepr.Controllers
     {
       if (ModelState.IsValid)
       {
-        vaultkeep = new VaultKeep(vaultkeep.VaultId, vaultkeep.KeepId, vaultkeep.UserId);
+        vaultkeep.UserId = HttpContext.User.Identity.Name;
+        // vaultkeep = new VaultKeep(vaultkeep.VaultId, vaultkeep.KeepId, vaultkeep.UserId);
         return _repo.CreateVaultKeep(vaultkeep);
       }
       throw new System.Exception("invalid createVaultKeep");
