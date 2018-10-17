@@ -88,7 +88,8 @@
         newVault: {
           title: "",
           description: ""
-        }
+        },
+        chosenVaultId: ""
       };
     },
     computed: {
@@ -103,16 +104,23 @@
       }
     },
     methods: {
-      addToVault(keepid, vaultid) {
-        console.log(keepid, vaultid)
-        this.$store.dispatch("addToVault", this.vaultid)
+      addToVault() {
+        if (this.chosenVaultId) {
+          console.log(chosenVaultId)
+          this.$store.dispatch("addToVault", {
+            keepId: this.keepData.id,
+            vaultId: this.chosenVaultId,
+          });
+        }
       },
+
+
       createKeep() {
-        console.log("hitting create keep from button")
+
         this.$store.dispatch("createKeep", this.newKeep)
       },
       GetAll() {
-        console.log("hitting getAll from button")
+
         this.$store.dispatch("getAllKeeps")
       },
       createVault() {
@@ -138,5 +146,6 @@
       },
       Logout() { }
     }
-  };
+  }
+
 </script>

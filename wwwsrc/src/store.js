@@ -93,9 +93,9 @@ export default new Vuex.Store({
     },
     // route not found
     addToVault({ commit, dispatch }, vaultId) {
-      api.put('keeps', vaultId)
-        .then(res => {
-          commit('keep', vaultId)
+      api.post('vaultkeep', vaultId)
+        .catch(e => {
+          console.log('error:', e)
         })
     },
 
