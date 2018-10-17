@@ -49,15 +49,3 @@ namespace keepr.Repositories
     }
   }
 }
-//from right above, first attempt
-//   name = keep.Name,
-// keep.Name = name;
-//   vaultId = keep.VaultId
-// });
-// if (success != 1) { return null; }
-// return new Keep()
-// {
-//   Name = creds.Name,
-//   Description = creds.Description,
-//   VaultId = creds.VaultId
-// };

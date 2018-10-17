@@ -1,11 +1,10 @@
-<!-- main vue, need to partition to others for improved ux -->
 <template>
   <div class="home">
     <!-- title (header) -->
     <header>
       <h1 class="font-weight-thin.font-italic">Welcome to Keepr</h1>
     </header>
-    <!-- will need to add v-if="user.id" to render if no user exists -->
+
     <button type="button" v-on:click="Logout()" class="btn btn-primary">Logout</button>
 
     <div class="row">
@@ -32,12 +31,16 @@
     </div>
     <!-- left in for now to display data needs some better styling  -->
     <ul>
-      <h1>List of Keeps:</h1>
+      <h3>List of Keeps:</h3>
     </ul>
     <li v-for="keep in keeps">
       <div>
         <h4>{{keep.name}}</h4>
         <h5>{{keep.description}}</h5>
+        <p @click="incrementViews">views: {{keep.views}}</p>
+        <p @click="incrementKeeps">keeps: {{keep.keeps}}</p>
+        <p @click="incrementShares">shares: {{keep.shares}}</p>
+        <button>view</button><button>keep</button><button>share</button>
         <!-- add to vault -->
 
 
@@ -126,6 +129,15 @@
       getKeepsByVaultId() {
         console.log("htitingKeepsByVaultIdfrom button in store")
         this.$store.dispatch("getKeepsByVaultId")
+      },
+      incrementKeeps() {
+        this.$store.dispatch("incrementKeeps")
+      },
+      incrementShares() {
+        this.$store.dispatch("incrementShares")
+      },
+      incrementViews() {
+        this.$store.dispatch("incrementViews")
       },
       Logout() { }
     }
